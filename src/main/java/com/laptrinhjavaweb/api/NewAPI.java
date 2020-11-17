@@ -25,9 +25,9 @@ public class NewAPI {
 		return model;
 	}
 
-	@GetMapping("/news")
+	@RequestMapping("/news/{id}")
 	@ResponseBody
-	public String createGet(@RequestParam int id) {
+	public String createGet(@PathVariable("id") int id) {
 		return "ID:" + id;
 	}
 	
