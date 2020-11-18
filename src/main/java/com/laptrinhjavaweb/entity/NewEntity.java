@@ -10,10 +10,10 @@ import javax.persistence.Table;
 public class NewEntity {
 	@Id
 	@Column(columnDefinition = "id")
-	private Long id;
+	private Long id ;
 
 	@Column(columnDefinition = "title")
-	private String title;
+	private String title ;
 	
 	@Column(columnDefinition = "content")
 	private String content;
