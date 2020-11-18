@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.laptrinhjavaweb.dto.NewDTO;
 
 @Controller
+@RequestMapping("/api")
 public class NewAPI {
 	@RequestMapping(value = "/news", method = RequestMethod.POST)
 	@ResponseBody
@@ -27,19 +28,20 @@ public class NewAPI {
 
 	@RequestMapping("/news/{id}")
 	@ResponseBody
-	public String createGet(@PathVariable("id") int id) {
+	public String getInfo(@PathVariable("id") int id) {
 		return "ID:" + id;
 	}
-	
-	@GetMapping("/news/keyword={keyword}&page={pagenumber}")
+
+	@RequestMapping(value = "/news", method = RequestMethod.GET)
 	@ResponseBody
-	public String createGetMulti(@PathVariable(name = "keyword") String keyword,@PathVariable(name = "pagenumber") int pagenumber ) {
+	public String getMoreInfo(@RequestParam(name = "keyword") String keyword,
+			@RequestParam(name = "pagenumber") int pagenumber) {
 		return "keyword:" + keyword + " pagenumber: " + pagenumber;
 	}
 
 	@RequestMapping(value = "/news", method = RequestMethod.DELETE)
-   @ResponseBody
-   public String createDelete(@RequestParam int id) {
-	   return "ID:" + id;
-   }
+	@ResponseBody
+	public String createDelete(@RequestParam int id) {
+		return "ID:" + id;
+	}
 }
