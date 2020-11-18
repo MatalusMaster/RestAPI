@@ -1,3 +1,7 @@
 com\laptrinhjavaweb\dto\NewDTO.class
-com\laptrinhjavaweb\api\Application.class
+com\laptrinhjavaweb\entity\NewEntity.class
+com\laptrinhjavaweb\repository\NewRepository.class
+com\laptrinhjavaweb\service\NewService.class
+com\laptrinhjavaweb\service\NewServiceImpl.class
+com\laptrinhjavaweb\Application.class
 com\laptrinhjavaweb\api\NewAPI.class

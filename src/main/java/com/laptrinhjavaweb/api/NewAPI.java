@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,10 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.laptrinhjavaweb.dto.NewDTO;
+import com.laptrinhjavaweb.service.NewService;
 
 @Controller
 @RequestMapping("/api")
 public class NewAPI {
+	@Autowired
+	private NewService newService;
+	
 	@RequestMapping(value = "/news", method = RequestMethod.POST)
 	@ResponseBody
 	public NewDTO createNew(@RequestBody NewDTO model) {
@@ -27,8 +32,8 @@ public class NewAPI {
 
 	@RequestMapping(value = "/news/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public String getInfo(@PathVariable("id") int id) {
-		return "ID:" + id;
+	public NewDTO getInfo(@PathVariable("id") long id) {
+		return newService.getNew(id);
 	}
 
 	@RequestMapping(value = "/news", method = RequestMethod.GET)
