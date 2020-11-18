@@ -1,7 +1,6 @@
 package com.laptrinhjavaweb.api;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +25,7 @@ public class NewAPI {
 		return model;
 	}
 
-	@RequestMapping("/news/{id}")
+	@RequestMapping(value = "/news/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public String getInfo(@PathVariable("id") int id) {
 		return "ID:" + id;
