@@ -34,14 +34,14 @@ public class NewAPI {
 
 	@RequestMapping(value = "/news", method = RequestMethod.GET)
 	@ResponseBody
-	public String getMoreInfo(@RequestParam(name = "keyword") String keyword,
+	public String searchNew(@RequestParam(name = "keyword") String keyword,
 			@RequestParam(name = "pagenumber") int pagenumber) {
 		return "keyword:" + keyword + " pagenumber: " + pagenumber;
 	}
 
 	@RequestMapping(value = "/news", method = RequestMethod.DELETE)
 	@ResponseBody
-	public String createDelete(@RequestParam int id) {
+	public String deleteNew(@RequestParam int id) {
 		return "ID:" + id;
 	}
 }
